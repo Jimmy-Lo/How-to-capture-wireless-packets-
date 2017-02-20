@@ -34,7 +34,6 @@ INDEX VERSION 1.129+C:\Wireless-Packets-Analysis\.metadata\.plugins\org.eclipse.
 4152508114.index
 3114564215.index
 175909411.index
-2184941562.index
 3687968176.index
 3762258750.index
 4288823610.index
