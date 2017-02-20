@@ -1,0 +1,45 @@
+sudo: required
+
+language: java
+
+addons:
+  hostname: pcap4j-test
+
+branches:
+  only:
+    - v1
+
+matrix:
+  include:
+    - jdk: oraclejdk8
+    - jdk: oraclejdk7
+      env: COVERALLS=yes
+    - jdk: openjdk6
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.m2
+
+install:
+  - git clone -b libpcap-1.7.4 git://github.com/the-tcpdump-group/libpcap.git libpcap
+  - cd libpcap
+  - ./configure
+  - make && sudo make install
+  - cd ..
+
+script:
+  - |
+    if [ "${COVERALLS}" = "yes"  ]
+    then
+      sudo /usr/local/maven/bin/mvn -Dorg.pcap4j.core.pcapLibName=/usr/local/lib/libpcap.so -B -DserviceJobId=$TRAVIS_JOB_ID -Dorg.pcap4j.core.test.enableTimestampPrecisionTests=true -P test-coverage package coveralls:report
+    else
+      sudo /usr/local/maven/bin/mvn -Dorg.pcap4j.core.pcapLibName=/usr/local/lib/libpcap.so -B install
+    fi
+
+notifications:
+  email:
+    recipients:
+      - kaitoy@pcap4j.org
+    on_success: change
+    on_failure: always

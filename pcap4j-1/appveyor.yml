@@ -1,0 +1,102 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+version: '{build}-{branch}'
+
+# branches to build
+branches:
+  # whitelist
+  only:
+    - v1
+
+  # blacklist
+  except:
+    - gh-pages
+
+# Do not build on tags
+skip_tags: true
+
+# Skipping commits with particular message or from user
+skip_commits:
+  message: /\[maven-release-plugin\]/
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+# Operating system (build VM template)
+os: Windows Server 2012 R2
+
+# fetch repository as zip archive
+shallow_clone: false
+
+# environment variables
+environment:
+  SONATYPE_NEXUS_USERNAME:
+    secure: DDwS0DjK9j/d79DuAlJy3A==
+  SONATYPE_NEXUS_PASSWORD:
+    secure: mr5kcUXHVYPmF+7bXPi2Ow==
+
+# scripts that run after cloning repository
+install:
+  # Install WinPcap
+  #- cmd: choco install -y winpcap
+
+  # Install nmap which includes WinPcap instead of WinPcap itself to avoid an issue where
+  # installation of autohotkey.portable which is used by choco install script for WinPcap
+  # randomly fails somehow.
+  - cmd: choco install -y nmap
+
+  # Install Maven
+  # - cmd: choco install -y maven -version 3.2.5
+  # Get the Maven bin directory path
+  # - ps: $env:MAVEN_BIN_PATH = [Environment]::GetEnvironmentVariable('M2', 'User')
+  # - cmd: echo %MAVEN_BIN_PATH%
+
+  # Use pre-installed Maven instead
+
+  # Set JAVA_HOME
+  - ps: $env:PATH -match '[;|^][^;]*\\jdk[^;]*[;|\\Z]'
+  - ps: $env:JAVA_HOME = $matches[0] -replace ';|\\bin', ''
+  - cmd: echo %JAVA_HOME%
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+# build platform, i.e. x86, x64, Any CPU. This setting is optional.
+platform: Any CPU
+
+# scripts to run before build
+before_build:
+  - cmd: if not exist %userprofile%\.m2 (mkdir %userprofile%\.m2)
+  - cmd: copy /y mvn\settings.xml %userprofile%\.m2
+  - ps: if (-not $env:APPVEYOR_PULL_REQUEST_NUMBER) {$env:MAVEN_PHASE = 'deploy'} else {$env:MAVEN_PHASE = 'install'}
+
+build_script:
+  # Run mvn command with jna.nosys=true not to use an older jna pre-installed in AppVeyor VMs.
+  - cmd: call mvn -Djna.nosys=true -Djna.library.path=C:\Windows\System32\Npcap -P distribution-assembly %MAVEN_PHASE%
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
+
+test: off
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+deploy: off
+
+#---------------------------------#
+#         notifications           #
+#---------------------------------#
+
+notifications:
+  - provider: Email
+    to: kaitoy@pcap4j.org
+    on_build_success: false
+    on_build_failure: true
