@@ -498,6 +498,12 @@ public final class EthernetPacket extends AbstractPacket {
 		return dstAddr.toString();
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

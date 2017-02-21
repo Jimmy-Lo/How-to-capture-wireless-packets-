@@ -176,6 +176,8 @@ public interface Packet extends Iterable<Packet>, Serializable {
 
 	public String getDstAddress();
 
+	public int getDataRate();
+
   }
 
 }

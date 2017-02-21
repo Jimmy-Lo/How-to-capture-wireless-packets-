@@ -1,14 +1,14 @@
 function [  ] = Nodes_number_distribution(  )
 
 %% initialize
-networkdata = importfile('C:/Users/usfcsa/OneDrive/workspace/Matlab/networkData.txt');
+networkdata = importfile1('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
 packet = 1;                                                          % start packet.
 time_epoch = 1;
 fid = fopen('Nodes_number_distribution.txt','w');
 
 %% Main function
-for m = 1:14                                                        %find the packet which has different dsr with the previous packet in the next m packets.
-for time_epoch = 1:10:20
+for m = 1:10                                                 %find the packet which has different dsr with the previous packet in the next m packets.
+% for time_epoch = 1:10:40
     
     packet = packet+1;
     if (ismember(networkdata(packet,2),networkdata(packet-1,2)) )
@@ -121,7 +121,7 @@ for time_epoch = 1:10:20
     
 end
 
-end
+% end
 fclose(fid);
 end
 

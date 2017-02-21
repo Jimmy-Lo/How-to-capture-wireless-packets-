@@ -442,6 +442,12 @@ public final class IpV6ExtFragmentPacket extends AbstractPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

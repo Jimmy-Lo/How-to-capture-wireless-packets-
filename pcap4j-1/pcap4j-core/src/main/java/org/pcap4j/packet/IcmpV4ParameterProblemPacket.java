@@ -274,6 +274,12 @@ public final class IcmpV4ParameterProblemPacket extends IcmpV4InvokingPacketPack
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

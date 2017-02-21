@@ -141,4 +141,10 @@ public final class RadiotapDataPad implements RadiotapData {
 
   }
 
+@Override
+public int getDataRate() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
 }

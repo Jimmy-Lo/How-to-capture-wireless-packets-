@@ -179,6 +179,12 @@ public final class IpV6ExtDestinationOptionsPacket extends IpV6ExtOptionsPacket 
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

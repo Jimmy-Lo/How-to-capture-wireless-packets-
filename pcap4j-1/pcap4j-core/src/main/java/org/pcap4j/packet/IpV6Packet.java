@@ -619,6 +619,12 @@ public final class IpV6Packet extends AbstractPacket implements IpPacket {
 		return dstAddr.toString();
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
   /**

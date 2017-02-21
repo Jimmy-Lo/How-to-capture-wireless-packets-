@@ -1037,6 +1037,12 @@ public final class Dot11ProbeRequestPacket extends Dot11ManagementPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

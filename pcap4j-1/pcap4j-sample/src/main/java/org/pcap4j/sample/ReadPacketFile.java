@@ -21,7 +21,7 @@ public class ReadPacketFile {
   private static final String PCAP_FILE_KEY
     = ReadPacketFile.class.getName() + ".pcapFile";
   private static final String PCAP_FILE
-    = System.getProperty(PCAP_FILE_KEY,"C:/Users/luo_z/Google Drive/Hall_test.pcap");
+    = System.getProperty(PCAP_FILE_KEY,"C:/Users/luo_z/Google Drive/Hall_normal.pcap");
 
   private ReadPacketFile() {}
 
@@ -33,7 +33,7 @@ public class ReadPacketFile {
       handle = Pcaps.openOffline(PCAP_FILE);
     }
 
-    File newTextFile = new File("C:/Users/usfcsa/OneDrive/workspace/Matlab/networkData.txt");
+    File newTextFile = new File("C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt");
 	FileWriter fw = new FileWriter(newTextFile);
 	
     for (int i = 0; i < COUNT; i++) {
@@ -43,22 +43,36 @@ public class ReadPacketFile {
         try {
         	int l = packet.length();
         	if (packet.getHeader() != null) {                  // normal tcp/ip/... packets. 
-        		String str1 = packet.getHeader().getSrcAddress();
-        		String str2 = packet.getHeader().getDstAddress();     	
-        	    String timestamp = handle.getTimestamp().toString();
-        	   
-        		fw.append(str1);
-        		fw.append(",");
-        		fw.append(str2);
-        		fw.append(",");
-        		fw.append(String.valueOf(l));
-        		fw.append(",");
-        		fw.append(timestamp);
-        		fw.append("\n");        	
+        		//String str1 = packet.getHeader().getSrcAddress();
+        		//String str2 = packet.getHeader().getDstAddress();     	
+        		byte[] bt = packet.getPayload().getRawData();
+        		int rate = packet.getHeader().getDataRate();
+        		if (bt.length< 15) {}
+        		else {
+        			String timestamp = handle.getTimestamp().toString();
+        			String str1 = "",str2 = "";
+        			for (int k = 0; k < 7; k++) {
+        				str1 = str1.concat(":"+bt[4+k]);
+        				str2 = str2.concat(":"+bt[10+k]);
+        			}
+        			fw.append(str1);
+        			fw.append(",");
+        			fw.append(str2);
+        			fw.append(",");
+        			fw.append(String.valueOf(l));
+        			fw.append(","); 			
+        			fw.append(timestamp);
+        			fw.append(",");
+        			fw.append(String.valueOf(rate));      			
+        			fw.append("\n");  
+        			
+        		}
         	}
         	else {                                     //normal 802.11 packets
+        		
+        		System.out.println("another kind of packets other than 802.11 found");
 
-        		byte[] s = packet.getRawData();
+ /*       		byte[] s = packet.getRawData();
         		String str1 = "",str2 = "";
         		for (i = 1; i < 7; i++) {
         			int t1 = s[3+i];
@@ -76,7 +90,7 @@ public class ReadPacketFile {
         		fw.append(String.valueOf(l));
         		fw.append(",");
         		fw.append(timestamp);
-        		fw.append("\n");        
+        		fw.append("\n");                                        */
         	}
         } catch (IOException iox) {
         	iox.printStackTrace();

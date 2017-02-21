@@ -234,6 +234,12 @@ public final class IcmpV6TimeExceededPacket extends IcmpV6InvokingPacketPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

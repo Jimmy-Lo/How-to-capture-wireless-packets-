@@ -555,6 +555,12 @@ public final class ArpPacket extends AbstractPacket {
 		return dstProtocolAddr.toString();
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

@@ -165,4 +165,10 @@ public final class RadiotapDataRate implements RadiotapData {
 
   }
 
+@Override
+public int getDataRate() {
+	// TODO Auto-generated method stub
+	return getRateAsInt() * 500;
+}
+
 }

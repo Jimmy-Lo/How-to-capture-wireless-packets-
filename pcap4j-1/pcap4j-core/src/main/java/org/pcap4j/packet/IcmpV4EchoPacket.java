@@ -173,6 +173,12 @@ public final class IcmpV4EchoPacket extends IcmpIdentifiablePacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

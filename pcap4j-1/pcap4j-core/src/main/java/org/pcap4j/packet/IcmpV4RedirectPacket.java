@@ -245,6 +245,12 @@ public final class IcmpV4RedirectPacket extends IcmpV4InvokingPacketPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
 }

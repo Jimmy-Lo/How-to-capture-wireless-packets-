@@ -11,4 +11,10 @@
 			<item value="105" key="DIALOG_Y_ORIGIN"/>
 		</section>
 	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item value="200" key="SashWeightTree"/>
+		<item value="200" key="SashWeightDetails"/>
+		<item value="1020" key="WIDTH"/>
+		<item value="320" key="HEIGHT"/>
+	</section>
 </section>

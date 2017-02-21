@@ -1,7 +1,7 @@
 function [ ] = Packet_size_distribution()
 
 %% initialize
-networkdata = importfile('C:/Users/usfcsa/OneDrive/workspace/Matlab/networkData.txt');
+networkdata = importfile1('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
 
 %% Main function
 packet = 1;                                                          %start packet

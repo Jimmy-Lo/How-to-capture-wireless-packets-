@@ -487,6 +487,12 @@ public final class IcmpV6CommonPacket extends AbstractPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
   }
 
   /**

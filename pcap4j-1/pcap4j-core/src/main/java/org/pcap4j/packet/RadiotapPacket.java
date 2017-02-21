@@ -10,6 +10,7 @@ package org.pcap4j.packet;
 import static org.pcap4j.util.ByteArrays.*;
 
 import java.io.Serializable;
+import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
@@ -577,6 +578,13 @@ public final class RadiotapPacket extends AbstractPacket {
 		return null;
 	}
 
+	@Override
+	public int getDataRate() {
+		// TODO Auto-generated method stub
+		RadiotapData r = dataFields.get(1);
+		return r.getDataRate();
+	}
+
   }
 
 
@@ -603,6 +611,7 @@ public final class RadiotapPacket extends AbstractPacket {
      * @return raw data
      */
     public byte[] getRawData();
+    public int getDataRate();
 
     /**
      * @param indent indent
