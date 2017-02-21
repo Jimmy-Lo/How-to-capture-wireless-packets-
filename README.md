@@ -5,7 +5,7 @@ we then use matlab to visualize the statistics. Great and humble appreciation an
 If you have any confusions or questions about my sharing, its my fault, please concact me throuth [HERE][id1]
 [id1]:https://github.com/Jimmy-Lo/gait_recognition/wiki/Contact-me  
 
-All the rights are perserved.
+All rights reserved.
 
 ## How to capture wireless packets?
 [How to capture wireless network packets with the open source tools?][id]  
