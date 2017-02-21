@@ -1,7 +1,7 @@
 function [ ] = Packet_dataRate_distribution()
 
 %% initialize
-networkdata = importfile1('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
+networkdata = importfile('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
 
 %% Main function
 packet = 1;                                                          %start packet
@@ -50,7 +50,7 @@ for m = 1:10                                                        %find the pa
         
         %% visualize
         figure
-        stem(cell2mat(packetsize),cell2mat(probability),'r*');
+        stem(cell2mat(packetsize),cell2mat(probability),'r-*');
         title('Distribution of Data Rate');
         xlabel('Data Rate');
         ylabel('Probability');    

@@ -1,7 +1,7 @@
 function [  ] = Nodes_number_distribution(  )
 
 %% initialize
-networkdata = importfile1('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
+networkdata = importfile('C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt');
 packet = 1;                                                          % start packet.
 time_epoch = 1;
 fid = fopen('Nodes_number_distribution.txt','w');
@@ -105,7 +105,7 @@ for m = 1:10                                                 %find the packet wh
 
         % visualize
         figure
-        stem(x_list,y_list,'r*');
+        bar(x_list,y_list,'b');
         title('Variation of the number of sources for a Specific Node');
         xlabel('Number of sources');
         ylabel('Probability');
