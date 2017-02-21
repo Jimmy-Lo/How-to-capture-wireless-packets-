@@ -21,7 +21,7 @@ public class ReadPacketFile {
   private static final String PCAP_FILE_KEY
     = ReadPacketFile.class.getName() + ".pcapFile";
   private static final String PCAP_FILE
-    = System.getProperty(PCAP_FILE_KEY,"C:/Users/usfcsa/Google Drive/Hall_test.pcap");
+    = System.getProperty(PCAP_FILE_KEY,"C:/Users/luo_z/Google Drive/Hall_test.pcap");
 
   private ReadPacketFile() {}
 

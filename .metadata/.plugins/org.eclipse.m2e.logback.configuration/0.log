@@ -196,3 +196,85 @@
 2017-02-20 17:55:35,731 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2017-02-20 17:55:35,733 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-02-20 17:55:35,734 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-sample\src\test\resources
+2017-02-20 23:07:18,462 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-20 23:11:28,595 [Worker-20] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2017-02-20 23:11:32,221 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packetfactory-propertiesbased:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-propertiesbased\pom.xml.
+2017-02-20 23:11:32,227 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.pcap4j:pcap4j-core:jar:1.7.1-SNAPSHOT is missing, no dependency information available
+2017-02-20 23:11:32,232 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.pcap4j:pcap4j-packettest:jar:tests:1.7.1-SNAPSHOT is missing, no dependency information available
+2017-02-20 23:11:33,436 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: org.pcap4j:pcap4j:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pom.xml.
+2017-02-20 23:11:34,072 [Worker-0] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packetfactory-propertiesbased:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-propertiesbased\pom.xml.
+2017-02-20 23:11:34,074 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.pcap4j:pcap4j-core:jar:1.7.1-SNAPSHOT is missing, no dependency information available
+2017-02-20 23:11:34,080 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.pcap4j:pcap4j-packettest:jar:tests:1.7.1-SNAPSHOT is missing, no dependency information available
+2017-02-20 23:11:34,318 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-propertiesbased/src/main/java
+2017-02-20 23:11:34,319 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /pcap4j-packetfactory-propertiesbased/src/main/java overlaps with sources folder /pcap4j-packetfactory-propertiesbased/src/main/java
+2017-02-20 23:11:34,325 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-propertiesbased/src/test/java
+2017-02-20 23:11:34,325 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-packetfactory-propertiesbased/src/test/resources
+2017-02-20 23:11:34,738 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-core:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-core\pom.xml.
+2017-02-20 23:11:35,311 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packetfactory-propertiesbased:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-propertiesbased\pom.xml.
+2017-02-20 23:11:35,317 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for org.pcap4j:pcap4j-packettest:jar:tests:1.7.1-SNAPSHOT is missing, no dependency information available
+2017-02-20 23:11:35,513 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:35,521 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-02-20 23:11:35,541 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:35,542 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2017-02-20 23:11:36,078 [Worker-20] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 7 sec
+2017-02-20 23:11:36,080 [Worker-20] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2017-02-20 23:11:36,754 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-sample:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-sample\pom.xml.
+2017-02-20 23:11:36,838 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-core:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-core\pom.xml.
+2017-02-20 23:11:36,998 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packetfactory-static:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-static\pom.xml.
+2017-02-20 23:11:37,010 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: org.pcap4j:pcap4j:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pom.xml.
+2017-02-20 23:11:37,081 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-test-coverage:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-test-coverage\pom.xml.
+2017-02-20 23:11:37,178 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packettest:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packettest\pom.xml.
+2017-02-20 23:11:37,249 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: org.pcap4j:pcap4j-packetfactory-propertiesbased:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-propertiesbased\pom.xml.
+2017-02-20 23:11:37,254 [Worker-20] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: org.pcap4j:pcap4j-distribution:1.7.1-SNAPSHOT @ C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-distribution\pom.xml.
+2017-02-20 23:11:38,093 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-sample/src/main/java
+2017-02-20 23:11:38,093 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-sample/src/main/resources
+2017-02-20 23:11:38,112 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-sample/src/test/java
+2017-02-20 23:11:38,434 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-core/src/main/java
+2017-02-20 23:11:38,444 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /pcap4j-core/src/main/java overlaps with sources folder /pcap4j-core/src/main/java
+2017-02-20 23:11:38,492 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-core/src/test/java
+2017-02-20 23:11:38,496 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-core/src/test/resources
+2017-02-20 23:11:39,377 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-static/src/main/java
+2017-02-20 23:11:39,378 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-static/src/test/java
+2017-02-20 23:11:39,378 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-packetfactory-static/src/test/resources
+2017-02-20 23:11:39,585 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-test-coverage/src/main/java
+2017-02-20 23:11:39,592 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-test-coverage/src/test/java
+2017-02-20 23:11:39,797 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packettest/src/main/java
+2017-02-20 23:11:39,825 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packettest/src/test/java
+2017-02-20 23:11:39,840 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-packettest/src/test/resources
+2017-02-20 23:11:39,955 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-propertiesbased/src/main/java
+2017-02-20 23:11:39,959 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /pcap4j-packetfactory-propertiesbased/src/main/java overlaps with sources folder /pcap4j-packetfactory-propertiesbased/src/main/java
+2017-02-20 23:11:39,963 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pcap4j-packetfactory-propertiesbased/src/test/java
+2017-02-20 23:11:39,980 [Worker-20] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pcap4j-packetfactory-propertiesbased/src/test/resources
+2017-02-20 23:11:40,124 [Worker-20] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 4 sec
+2017-02-20 23:11:53,299 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:53,324 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-02-20 23:11:53,345 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:53,354 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2017-02-20 23:11:55,790 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:55,790 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packettest\src\main\resources
+2017-02-20 23:11:55,801 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:55,811 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 150 resources
+2017-02-20 23:11:59,478 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:59,479 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-packetfactory-static\src\main\resources
+2017-02-20 23:11:59,486 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:11:59,493 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-20 23:12:00,066 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,066 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-20 23:12:00,085 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,085 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-02-20 23:12:00,658 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,659 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-02-20 23:12:00,848 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,848 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-sample\src\test\resources
+2017-02-20 23:12:00,872 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,873 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-test-coverage\src\main\resources
+2017-02-20 23:12:00,887 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:00,887 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-test-coverage\src\test\resources
+2017-02-20 23:12:04,561 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:04,562 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-02-20 23:12:04,577 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:12:04,582 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-sample\src\test\resources
+2017-02-20 23:16:50,183 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:16:50,184 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2017-02-20 23:16:50,211 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-02-20 23:16:50,242 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Wireless-Packets-Analysis\pcap4j-1\pcap4j-sample\src\test\resources
