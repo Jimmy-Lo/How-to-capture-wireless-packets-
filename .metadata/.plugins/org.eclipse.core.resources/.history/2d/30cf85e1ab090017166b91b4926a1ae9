@@ -1,0 +1,15 @@
+package org.pcap4j.sample;
+
+public class PacketInformation {
+	String str1,str2,str3,str4;
+	int L;
+	double D;
+	PacketInformation () {
+		str1 = "";
+		str2 = "";
+		str3 = "";
+		str4 = "";
+		L = 0;
+		D = 0;
+	}
+}

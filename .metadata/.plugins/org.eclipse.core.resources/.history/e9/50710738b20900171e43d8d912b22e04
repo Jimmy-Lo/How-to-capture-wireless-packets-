@@ -1,0 +1,23 @@
+package org.pcap4j.sample;
+
+public class PacketInformation {
+	String str1,str2,str3,str4;
+	int L;
+	double D;
+	public PacketInformation(String string, String string2, String string3, String string4, int i, int j) {
+		str1 = "";
+		str2 = "";
+		str3 = "";
+		str4 = "";
+		L = 0;
+		D = 0;
+	}
+	void setPacketInformation (String str1,String str2,String str3,String str4,int L, double D) {
+		str1 = str1;
+		str2 = str2;
+		str3 = str3;
+		str4 = str4;
+		L = L;
+		D = D;
+	}
+}

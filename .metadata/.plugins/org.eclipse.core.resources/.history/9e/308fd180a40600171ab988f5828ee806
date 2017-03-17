@@ -1,0 +1,9 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		String m = "-9";
+		int k = Integer.valueOf(m);
+		System.out.println(Integer.toHexString(k));
+	}
+}

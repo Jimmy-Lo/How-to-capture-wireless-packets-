@@ -4,7 +4,6 @@ import java.io.EOFException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 import java.util.concurrent.TimeoutException;
 import org.pcap4j.core.NotOpenException;
 import org.pcap4j.core.PcapHandle;
@@ -16,96 +15,57 @@ import org.pcap4j.packet.Packet;
 @SuppressWarnings("javadoc")
 public class ReadPacketFile {
 
-  private static final int COUNT = 3845390;
+	private static final int COUNT = 300000000;
 
-  private static final String PCAP_FILE_KEY
-    = ReadPacketFile.class.getName() + ".pcapFile";
-  private static final String PCAP_FILE
-    = System.getProperty(PCAP_FILE_KEY,"C:/Users/luo_z/Google Drive/Hall_normal.pcap");
+	private static final String PCAP_FILE_KEY = ReadPacketFile.class.getName() + ".pcapFile";
+	private static final String PCAP_FILE = System.getProperty(PCAP_FILE_KEY,
+			"C:/Users/usfcsa/Google Drive/chihuahuan-ath0.pcap");
 
-  private ReadPacketFile() {}
+	private ReadPacketFile() {
+	}
 
-  public static void main(String[] args) throws PcapNativeException, NotOpenException, IOException {
-    PcapHandle handle;
-    try {
-      handle = Pcaps.openOffline(PCAP_FILE, TimestampPrecision.NANO);
-    } catch (PcapNativeException e) {
-      handle = Pcaps.openOffline(PCAP_FILE);
-    }
+	public static void main(String[] args) throws PcapNativeException, NotOpenException, IOException, TimeoutException {
+		PcapHandle handle;
+		try {
+			handle = Pcaps.openOffline(PCAP_FILE, TimestampPrecision.NANO);
+		} catch (PcapNativeException e) {
+			handle = Pcaps.openOffline(PCAP_FILE);
+		}
 
-    File newTextFile = new File("C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt");
-	FileWriter fw = new FileWriter(newTextFile);
+		File newTextFile = new File("C:/Wireless-Packets-Analysis/matlab_based_analysis/networkData.txt");
+		FileWriter fw = new FileWriter(newTextFile);
+		int p = 0, q = 0;  //count
+		
+		for (int i = 0; i < COUNT; i++) {
+			Packet packet;
+			try {
+				packet = handle.getNextPacketEx(); // get the packet.
+			} catch (EOFException e) {
+				System.out.println("EOF");
+				break;
+			}
+			String timestamp = handle.getTimestamp().toString();
+			int L = packet.length();
+			
+		//	PacketInformation PI = From802_11n.GetPacketInformation(packet,i);
+		//	PacketInformation PI = From802_11n.GetPacketInformation(packet,i);
+		//	PacketInformation PI = From802_11n.GetPacketInformation(packet,i);
+		
+			PacketInformation PI = FromSigcomm.GetPacketInformation(packet,i);
+			
+			if (PI.D == 0) {
+				//System.out.println("i="+ i);
+			}
+			else {
+				Util.WriteFile(fw, PI.str1, PI.str2, PI.str3, timestamp, PI.L, PI.D);
+				System.out.println(q++);
+			}
+			
+		}
+
+		fw.close();
+		handle.close();
+
+	}
 	
-    for (int i = 0; i < COUNT; i++) {
-      try {
-        Packet packet = handle.getNextPacketEx();  
-        
-        try {
-        	int l = packet.length();
-        	if (packet.getHeader() != null) {                  // normal tcp/ip/... packets. 
-        		//String str1 = packet.getHeader().getSrcAddress();
-        		//String str2 = packet.getHeader().getDstAddress();     	
-        		byte[] bt = packet.getPayload().getRawData();
-        		int rate = packet.getHeader().getDataRate();
-        		if (bt.length< 15) {}
-        		else {
-        			String timestamp = handle.getTimestamp().toString();
-        			String str1 = "",str2 = "";
-        			for (int k = 0; k < 7; k++) {
-        				str1 = str1.concat(":"+bt[4+k]);
-        				str2 = str2.concat(":"+bt[10+k]);
-        			}
-        			fw.append(str1);
-        			fw.append(",");
-        			fw.append(str2);
-        			fw.append(",");
-        			fw.append(String.valueOf(l));
-        			fw.append(","); 			
-        			fw.append(timestamp);
-        			fw.append(",");
-        			fw.append(String.valueOf(rate));      			
-        			fw.append("\n");  
-        			
-        		}
-        	}
-        	else {                                     //normal 802.11 packets
-        		
-        		System.out.println("another kind of packets other than 802.11 found");
-
- /*       		byte[] s = packet.getRawData();
-        		String str1 = "",str2 = "";
-        		for (i = 1; i < 7; i++) {
-        			int t1 = s[3+i];
-        			str1 = str1.concat(Integer.toHexString(t1));
-        			int t2 = s[9+i];
-        			str2 = str2.concat(Integer.toHexString(t2));
-        		}
-
-        	    String timestamp = handle.getTimestamp().toString();
-        	    
-        	    fw.append(str2);
-        		fw.append(",");
-        		fw.append(str1);
-        		fw.append(",");
-        		fw.append(String.valueOf(l));
-        		fw.append(",");
-        		fw.append(timestamp);
-        		fw.append("\n");                                        */
-        	}
-        } catch (IOException iox) {
-        	iox.printStackTrace();
-        }
-        
-      } catch (TimeoutException e) {
-      } catch (EOFException e) {
-        System.out.println("EOF");
-        break;
-      }
-
-    }
-  
-  	fw.close();
-    handle.close();
-  }
-
 }

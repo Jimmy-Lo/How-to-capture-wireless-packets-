@@ -1,0 +1,13 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		byte[] rd = new byte[4];
+		rd[1] = 32;
+		String[] s = new String[2];
+		s[1] = "37";s[0] = "0d";
+		if(s[1] =="37" && s[0].toCharArray()[1] =='d') {
+			System.out.println(s[1]);
+		}
+	}
+}

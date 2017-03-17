@@ -1,0 +1,23 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		String FCF = "0";
+		
+			FCF = toHexString(-11);
+			FCF.concat(toHexString(0));
+		
+		System.out.println("0".concat(String.valueOf(0)));
+	}
+	public static String toHexString(byte str) {
+		String s = Integer.toHexString(Integer.valueOf(str));
+		char[] c = s.toCharArray();
+		String r;
+		if (c.length > 1) {
+			r = String.valueOf(c[c.length - 2]).concat(String.valueOf(c[c.length - 1]));
+		} else
+			
+			r = "0".concat(String.valueOf(c[c.length - 1]));
+		return r;
+	}
+}

@@ -1,0 +1,54 @@
+package org.pcap4j.sample;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Util {
+	
+	/**
+	 * write the information to the .txt file.
+	 * 
+	 * @param fw
+	 * @param str1
+	 * @param str2
+	 * @param l
+	 * @param timestamp
+	 * @param rate
+	 * @throws IOException
+	 */
+	public static void WriteFile(FileWriter fw, String str1, String str2, String str3, String str4,
+			int L,double D) throws IOException {
+		fw.append(str1);
+		fw.append(",");
+		fw.append(str2);
+		fw.append(",");
+		fw.append(str3);
+		fw.append(",");
+		fw.append(str4);
+		fw.append(",");
+		fw.append(String.valueOf(L));
+		fw.append(",");
+		fw.append(String.valueOf(D));
+		fw.append("\n");
+	}
+	
+	/**
+	 * turn byte to hexString
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String toHexString(byte str) {
+		String s = Integer.toHexString(Integer.valueOf(str));
+		char[] c = s.toCharArray();
+		String r;
+		if (c.length > 1) {
+			r = String.valueOf(c[c.length - 2]).concat(String.valueOf(c[c.length - 1]));
+		} else if (!c.equals('0')) {
+			r = "0".concat(String.valueOf(c[c.length - 1]));
+		} else
+			r = "00";
+		return r;
+	}
+
+}

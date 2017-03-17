@@ -1,0 +1,17 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		byte[] rd = new byte[4];
+		rd[1] = 32;
+		String[] rateSeg2 = new String[2];
+		rateSeg2[0] = "37";rateSeg2[1] = "0d";
+		char ch2 = rateSeg2[1].toCharArray()[1];
+
+		if (rateSeg2[0] == "37" && ch2 == '1') {
+			switch (rd[1]) {
+			case 32: System.out.println(rateSeg2[1]);
+			}
+		}
+	}
+}

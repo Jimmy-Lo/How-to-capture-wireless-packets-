@@ -1,0 +1,8 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		String FCF = "3";
+		System.out.println(FCF.compareTo("2"));
+	}
+}

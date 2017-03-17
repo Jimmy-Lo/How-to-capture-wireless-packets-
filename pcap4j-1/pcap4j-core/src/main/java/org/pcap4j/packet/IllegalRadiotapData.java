@@ -140,4 +140,10 @@ public final class IllegalRadiotapData implements RadiotapData {
 
   }
 
+@Override
+public int getDataRate() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
 }

@@ -1,0 +1,8 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		int k = 45;
+		System.out.println(Integer.toHexString(k));
+	}
+}

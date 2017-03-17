@@ -580,8 +580,11 @@ public final class RadiotapPacket extends AbstractPacket {
 
 	@Override
 	public int getDataRate() {
-		// TODO Auto-generated method stub
-		RadiotapData r = dataFields.get(1);
+		// TODO Auto-generated method stub	
+		RadiotapData r = dataFields.get(0);
+		if (r.getDataRate() == 0) {
+			 r = dataFields.get(1);
+		}
 		return r.getDataRate();
 	}
 

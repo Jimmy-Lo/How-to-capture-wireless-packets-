@@ -1,0 +1,10 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		  String s = Integer.toHexString(Integer.valueOf(-9));
+		  char[] c = s.toCharArray();
+		  String r = String.valueOf(c[c.length-2]).concat(String.valueOf(c[c.length-1]));
+		  System.out.println(Integer.toHexString(r));
+	}
+}

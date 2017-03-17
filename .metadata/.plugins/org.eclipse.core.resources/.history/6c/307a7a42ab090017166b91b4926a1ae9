@@ -1,0 +1,206 @@
+package org.pcap4j.sample;
+
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+import org.pcap4j.core.NotOpenException;
+import org.pcap4j.core.PcapHandle;
+import org.pcap4j.core.PcapHandle.TimestampPrecision;
+import org.pcap4j.core.PcapNativeException;
+import org.pcap4j.core.Pcaps;
+import org.pcap4j.packet.Packet;
+
+@SuppressWarnings("javadoc")
+public class From802_11ac {
+
+	public static PacketInformation GetPacketInformation( Packet packet ) throws IOException {
+					
+		int m = 0; //count variable
+			
+		byte[] rd = packet.getRawData(); // get the raw Data and put it in bt.
+		double rate = 0;
+		String str1 = "", str2 = "", str3 = ""; // addresses
+		PacketInformation PI = null;
+		//to determine if it is 802.11ac or not, if yes, then m = 1, if not, m = 0;
+		if  (packet.getHeader() != null) { 
+			try { 
+				rate = packet.getHeader().getDataRate(); 
+				m=1;
+			} catch (Exception e) {
+				rate = 0; 
+			} 						
+		}
+		
+		rate = 0;	 
+			
+		if (m == 0) { 
+			String[] rateSeg1 = new String[3];
+			String BF1 = String.valueOf(toHexString(rd[13]).toCharArray()[1]);  
+			for (int q = 0; q < 3; q++) { 
+					rateSeg1[q] = toHexString(rd[14 + q]);
+				} 
+			String[] rateSeg2 = new String[3];
+			String BF2 = String.valueOf(toHexString(rd[37]).toCharArray()[1]);
+			for (int q = 0; q < 3; q++) { 
+				rateSeg2[q] = toHexString(rd[38 + q]); 
+			} 
+			String[] rateSeg3 = new String[3];
+			String BF3 = String.valueOf(toHexString(rd[27]).toCharArray()[1]); 
+			for (int q = 0; q < 3; q++) {
+				rateSeg3[q] = toHexString(rd[28 + q]);
+			} 
+			String s1 = String.valueOf(rateSeg1[2].toCharArray()[0]),
+				   s2 = String.valueOf(rateSeg2[2].toCharArray()[0]), 
+				   s3 = String.valueOf(rateSeg3[2].toCharArray()[0]), 
+				   s4 = String.valueOf(rateSeg2[0].toCharArray()[1]);		
+					
+			if ((rateSeg1[0].equals("00")) && (rateSeg1[1].equals("04"))) { 
+				switch (Byte.valueOf(s1)) {
+					case 0: rate = 58.5;break;case 1: rate = 117;break;case 2: rate = 175.5;break;
+					case 3: rate = 234;break; case 4: rate = 351;break;case 5: rate = 468;break;
+					case 6: rate = 526.5;break;case 7: rate = 585;break; case 8: rate =	702;break;
+					case 9: rate = 780;break;
+				} 
+				/*		if (BF1.equals("0"))
+							l = 1; 
+						else 
+							l = 0;
+						m =Integer.valueOf(s1,16);
+				*/		
+				getAddresses(rd,28,str1,str2,str3);	
+			}
+			
+			if((rateSeg1[0].equals("04")) && (rateSeg1[1].equals("04"))) { 
+				switch (Byte.valueOf(s1)) {
+					case 0: rate = 65;break;case 1: rate = 130;break;case 2: rate = 195;break;
+					case 3: rate = 260;break; case 4: rate = 390;break;case 5: rate = 520;break;
+					case 6: rate = 585;break;case 7: rate = 650;break; case 8: rate = 780;break;
+					case 9: rate = 866.7;break; 
+				} 
+				/*		if (BF1.equals("0")) 
+							l = 1; 
+						else
+							l = 0;
+						m =Integer.valueOf(s1,16);
+				*/		
+				getAddresses(rd,28,str1,str2,str3);	
+
+			}
+			
+			if((rateSeg3[0].equals("04")) && (rateSeg3[1].equals("04"))) {
+				switch (Byte.valueOf(s3)) {
+					case 0: rate = 65;break;case 1: rate = 130;break;case 2: rate = 195;break;
+					case 3: rate = 260;break; case 4: rate = 390;break;case 5: rate = 520;break;
+					case 6: rate = 585;break;case 7: rate = 650;break; case 8: rate = 780;break;
+					case 9: rate = 866.7;break;
+				}
+				/*		if (BF3.equals("0")) 
+							l = 1; 
+						else 
+							l = 0;
+						m =Integer.valueOf(s3,16);
+				*/		
+				getAddresses(rd,56,str1,str2,str3);	
+
+			}
+			if ((s4.equals("4")) && (rateSeg2[1].equals("04"))) {
+				switch (Byte.valueOf(s2)) { 
+					case 0: rate = 65;break;case 1: rate = 130;break;case 2: rate = 195;break;
+					case 3: rate = 260;break; case 4: rate = 390;break;case 5: rate = 520;break;
+					case 6: rate = 585;break;case 7: rate = 650;break; case 8: rate = 780;break;
+					case 9: rate = 866.7;break; 
+				} 
+			/*			if (BF2.equals("0")) 
+							l = 1;
+						else
+				  			l = 0;
+						m =Integer.valueOf(s2,16);
+			*/			
+				getAddresses(rd,28,str1,str2,str3);		  
+			}
+		   
+			if (rate == 0) {}
+			else {
+				PI.str1 = str1;
+				PI.str2 = str2;
+				PI.str3 = str3;
+				PI.D = rate;
+			}
+		}
+		return PI;
+	}
+
+
+
+	/**
+	 * get the source and destination address segment 
+	 * @param rd
+	 * @param offset
+	 * @param str1
+	 * @param str2
+	 * @param str3
+	 */
+	public static void getAddresses (byte[] rd, int offset, String str1, String str2, String str3) { 
+		String[] bt = new String[18];
+		if (rd.length <= offset + 12 && rd.length > offset + 6) {
+			for (int q = 0; q < 6; q++) { 
+				bt[q] = toHexString(rd[offset + q]);
+			} 
+		} else if (rd.length < offset + 18 && rd.length > offset + 12) {
+			for (int q = 0; q < 12; q++) {
+				bt[q] = toHexString(rd[offset + q]);
+			} 
+		} else if (rd.length >=offset + 18) {
+			for (int q = 0; q < 18; q++) { 
+				bt[q] = toHexString(rd[offset + q]);
+			} 
+		}
+			
+		if (bt.length < 12) { // deal with abnormal packets.
+			for(int k = 0; k < 6; k++) { 
+				str1 = str1.concat(bt[k]);
+			} 
+		} 
+		if (bt.length < 18) { // deal with abnormal packets.
+			for (int k = 0; k < 6; k++) { 
+				str1 = str1.concat( bt[k]); 
+				str2 = str2.concat(bt[6 +k]);
+			}
+		} else { // normal packets
+			for (int k = 0; k < 6; k++) { 
+				str1 = str1.concat( bt[k]); 
+				str2 = str2.concat( bt[6 + k]); 
+				str3 = str3.concat( bt[12 + k]);
+			}
+		}
+				  
+		str1 = str1.substring(1, str1.length());
+		str2 = str2.substring(1, str2.length()); 
+		str3 = str3.substring(1, str3.length());
+		    	
+	}
+
+	
+	/**
+	 * turn byte to hexString
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String toHexString(byte str) {
+		String s = Integer.toHexString(Integer.valueOf(str));
+		char[] c = s.toCharArray();
+		String r;
+		if (c.length > 1) {
+			r = String.valueOf(c[c.length - 2]).concat(String.valueOf(c[c.length - 1]));
+		} else if (!c.equals('0')) {
+			r = "0".concat(String.valueOf(c[c.length - 1]));
+		} else
+			r = "00";
+		return r;
+	}
+	
+	
+}

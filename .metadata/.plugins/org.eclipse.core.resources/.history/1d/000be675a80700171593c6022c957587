@@ -1,0 +1,12 @@
+package org.pcap4j.sample;
+
+public class Test {
+	public static void main(String args[]) {
+		String[] s = new String[2];
+		s[1] = "37";s[2] = "d";
+		char ch = s.toCharArray()[1];
+		if(ch == 'd' && s =="fdsa") {
+			System.out.println(ch);
+		}
+	}
+}
